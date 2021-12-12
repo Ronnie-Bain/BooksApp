@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="note"
+            type="com.example.books.data.Note" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/note_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
+            android:layout_marginBottom="12dp"
+            app:cardCornerRadius="8dp"
+            app:cardUseCompatPadding="true">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/note_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:maxLines="1"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:text="@{note.noteTitle.toString()}"
+                    android:textAppearance="?attr/textAppearanceHeadline5"
+                    android:fontFamily="sans-serif-condensed-light"
+                    tools:text="This Book is beautiful" />
+
+                <TextView
+                    android:id="@+id/note_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/note_title"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="sans-serif-condensed-light"
+                    android:text="@{note.noteContent.toString()}"
+                    android:textAppearance="?attr/textAppearanceBody1"
+                    tools:text="@string/sample_note_content" />
+
+                <ImageView
+                    android:id="@+id/note_date_image"
+                    android:layout_width="12sp"
+                    android:layout_height="12sp"
+                    android:layout_marginTop="2dp"
+                    android:importantForAccessibility="no"
+                    app:srcCompat="@drawable/note_date_created"
+                    android:layout_alignStart="@id/note_content"
+                    android:layout_alignTop="@id/note_date_created"/>
+
+                <TextView
+                    android:id="@+id/note_date_created"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/note_content"
+                    android:layout_toEndOf="@id/note_date_image"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="sans-serif-condensed-light"
+                    android:text="@{note.noteDate.toString()}"
+                    android:textSize="12sp"
+                    tools:text="08 aug, 2021" />
+
+            </RelativeLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+
+</layout>

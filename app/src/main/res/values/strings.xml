@@ -1,0 +1,101 @@
+<resources>
+    <string name="app_name">Books</string>
+    <string name="app_title">Book Records</string>
+
+
+    <!-- Start fragment -->
+    <string name="menu_button_1">Insert a new record</string>
+    <string name="menu_button_2">Add to \'Books to read\'</string>
+    <string name="menu_button_3">Display the record list</string>
+    <string name="play_lucky_draw">Play lucky draw</string>
+    <string name="edit_record">Edit</string>
+
+
+    <!-- Book add fragment -->
+    <string name="input_total_page">Total Page <font color="#FF0000">*</font></string>
+    <string name="input_pages_read">Pages Read <font color="#FF0000">*</font></string>
+    <string name="input_book_name">Book Name <font color="#FF0000">*</font></string>
+    <string name="input_author_name">Author Name <font color="#FF0000">*</font></string>
+
+
+    <!-- Book list fragment -->
+    <string name="authors">by %s</string>
+    <string name="current_chapter">Chapter : %s</string>
+    <string name="status">Status : %s</string>
+    <string name="total_read_label">Total read : </string>
+    <string name="notes">Notes</string>
+
+
+    <!-- Details Fragment -->
+    <string name="label_penned_by">penned by</string>
+    <string name="topic">Field of genre : %s</string>
+    <string name="date_created">Date created : %s</string>
+    <string name="last_touched">Last touched : %s</string>
+    <string name="read_percent">Read percent : %1$s%%</string>
+    <string name="pages_read">Pages read : %1$s</string>
+    <string name="total_page">Total page : %1$s</string>
+
+
+    <!-- Book edit fragment -->
+    <string name="fg_edit_label_book_info">Book Info</string>
+    <string name="fg_edit_label_book_name">Book Name</string>
+    <string name="fg_edit_label_author">Author</string>
+    <string name="fg_edit_label_topic">Topic</string>
+    <string name="fg_edit_label_user_info">User Info</string>
+    <string name="fg_edit_label_pages_read">Pages Read</string>
+    <string name="fg_edit_label_total_page">Total Page</string>
+    <string name="fg_edit_pages_read_info">%1$s</string>
+    <string name="fg_edit_total_page_info">%1$s</string>
+    <string name="fg_edit_label_current_chapter">Current Chapter</string>
+    <string name="fg_edit_label_dates">Dates</string>
+    <string name="fg_edit_label_date_created">Date Created</string>
+    <string name="fg_edit_label_last_touched">Last Touched</string>
+    <string name="update_button">Update</string>
+    <string name="cancel_button">Cancel</string>
+
+    <!-- Search fragment -->
+    <string name="search_field_text">Search by book/author</string>
+
+
+    <!-- Note fragments -->
+    <string name="last_edited">Last edited : %s</string>
+    <string name="note_title">Title</string>
+    <string name="note_content">Note content…</string>
+
+
+    <!-- Dialog strings -->
+    <string name="Add_dialog_alert">Starred<font color="#FF0000">*</font> fields are Mandatory</string>
+    <string name="dialog_fields_tip">Fill the fields with \'0\' if you are not sure. You can update them later :)</string>
+    <string name="delete_alert_dialog_message">Are you sure you want to delete?</string>
+    <string name="book_edit_null_field_alert_dialog">Required text fields can\'t be null</string>
+    <string name="sample_note_content">
+        This is the book i want to read a thousand times cause it\'s really worth it.
+        It has lot\'s of content piled on top of each other.
+        That\'s the reason I like this one.
+        They say a book a day prevents you from hitting bae. Life is good
+    </string>
+
+
+    <!-- status strings -->
+    <string name="search_list_error_massage">Error in retrieving data :(\nMake sure you are connected to the internet.</string>
+    <string name="empty_note_list">Note List is empty!</string>
+    <string name="book_list_is_empty_text_line1">Book list is empty!</string>
+    <string name="book_list_is_empty_text_line2">Please insert new record!</string>
+
+
+    <!-- unspecified -->
+    <string name="delete">Delete</string>
+    <string name="edit">Edit</string>
+    <string name="no">No</string>
+    <string name="yes">Yes</string>
+    <string name="add">Add</string>
+    <string name="dark_theme">Dark theme</string>
+    <string name="home">Home</string>
+
+
+    <!-- String values for transition -->
+    <string name="book_name_card">book_name_card_%1$s</string>
+    <string name="book_details">book_details</string>
+
+
+</resources>

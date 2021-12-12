@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools" >
+
+    <data>
+        <variable
+            name="book"
+            type="com.example.books.data.Book" />
+    </data>
+    
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:transitionName="@string/book_details" >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:orientation="vertical" >
+
+                <ImageView
+                    android:id="@+id/details_image"
+                    android:layout_width="140dp"
+                    android:layout_height="180dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_gravity="center_horizontal"
+                    android:importantForAccessibility="no"
+                    app:srcUrl="@{book.bookImage}" />
+
+                <!--Book name & author-->
+                <TextView
+                    android:id="@+id/details_book_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:paddingTop="8dp"
+                    android:textSize="@dimen/details_text_size"
+                    android:textStyle="bold"
+                    android:maxLines="1"
+                    android:fontFamily="sans-serif-condensed-light"
+                    android:textAppearance="?attr/textAppearanceHeadline6"
+                    android:text="@{book.bookName.toString()}"
+                    tools:text="Real Crash" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:layout_gravity="center_horizontal"
+                    android:textSize="@dimen/details_text_size"
+                    android:textStyle="italic"
+                    android:fontFamily="sans-serif-condensed-light"
+                    android:text="@string/label_penned_by" />
+
+                <TextView
+                    android:id="@+id/details_author_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:layout_gravity="center_horizontal"
+                    android:textSize="@dimen/details_text_size"
+                    android:textStyle="italic|bold"
+                    android:fontFamily="sans-serif-condensed-light"
+                    android:textAppearance="?attr/textAppearanceBody2"
+                    android:text="@{book.bookAuthor.toString()}"
+                    tools:text="Peter D. Schiff" />
+
+                    <TextView
+                        android:id="@+id/details_topic"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="32dp"
+                        android:textSize="@dimen/details_about_size"
+                        android:fontFamily="sans-serif-condensed-light"
+                        android:textAppearance="?attr/textAppearanceBody2"
+                        android:text="@{@string/topic(book.bookTopic.toString())}"
+                        tools:text="Field of genre : Macroeconomics"/>
+
+                    <TextView
+                        android:id="@+id/details_status"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@{@string/status(book.bookStatus.toString())}"
+                        android:textSize="@dimen/details_about_size"
+                        android:fontFamily="sans-serif-condensed-light"
+                        android:textAppearance="?attr/textAppearanceBody2"
+                        tools:text="Status: Not Finished"/>
+
+                <!--divider-->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:alpha="0.1"
+                    android:background="@android:color/black"
+                    style="?attr/dividerHorizontal"/>
+
+                    <TextView
+                        android:id="@+id/details_chapter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="24dp"
+                        android:textSize="@dimen/details_about_size"
+                        android:textAppearance="?attr/textAppearanceBody2"
+                        android:fontFamily="sans-serif-condensed-light"
+                        android:text="@{@string/current_chapter(book.chapter.toString())}"
+                        tools:text="Chapter : Provided chapter"/>
+
+                    <TextView
+                        android:id="@+id/details_date_created"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@{@string/date_created(book.dateCreated.toString())}"
+                        android:textSize="@dimen/details_about_size"
+                        android:fontFamily="sans-serif-condensed-light"
+                        android:textAppearance="?attr/textAppearanceBody2"
+                        tools:text="Date created : 24 aug 2021"/>
+
+                    <TextView
+                        android:id="@+id/details_last_touched"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@{@string/last_touched(book.lastRead.toString())}"
+                        android:textSize="@dimen/details_about_size"
+                        android:fontFamily="sans-serif-condensed-light"
+                        android:textAppearance="?attr/textAppearanceBody2"
+                        tools:text="Last touched : 15 sem 2021"/>
+
+                    <TextView
+                        android:id="@+id/details_read_percent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@{@string/read_percent(book.readPercent)}"
+                        android:textSize="@dimen/details_about_size"
+                        android:fontFamily="sans-serif-condensed-light"
+                        android:textAppearance="?attr/textAppearanceBody2"
+                        tools:text="Read percent : 97%"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="8dp">
+
+                        <TextView
+                            android:id="@+id/details_pages_read"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@{@string/pages_read(book.pagesRead)}"
+                            android:textSize="@dimen/details_about_size"
+                            android:fontFamily="sans-serif-condensed-light"
+                            android:textAppearance="?attr/textAppearanceBody2"
+                            tools:text="Pages read : 45"/>
+
+                        <TextView
+                            android:id="@+id/details_total_page"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="end"
+                            android:text="@{@string/total_page(book.totalPage)}"
+                            android:textSize="@dimen/details_about_size"
+                            android:fontFamily="sans-serif-condensed-light"
+                            android:textAppearance="?attr/textAppearanceBody2"
+                            tools:text="Total page : 147"/>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"/>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</layout>

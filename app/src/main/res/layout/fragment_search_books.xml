@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools" >
+
+    <data>
+        <import type="com.example.books.viewModels.SearchListStatus"/>
+        <import type="android.view.View"/>
+        <variable
+            name="viewModel"
+            type="com.example.books.viewModels.BookViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/search_status"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:alpha="0.4"
+            android:layout_centerInParent="true"
+            app:searchResponse="@{viewModel.status}"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_below="@id/search_status"
+            android:layout_centerInParent="true"
+            android:text="@string/search_list_error_massage"
+            android:textAppearance="?attr/textAppearanceBody2"
+            android:visibility="@{viewModel.status == SearchListStatus.ERROR ? View.VISIBLE : View.GONE}"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="8dp" >
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/search_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipChildren="false"
+                app:navigationIcon="@drawable/search_field_arrow_back">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/search_field"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_gravity="center_vertical"
+                        android:background="@null"
+                        android:hint="@string/search_field_text"
+                        android:imeOptions="actionSearch"
+                        android:inputType="textNoSuggestions"/>
+
+                    <ImageButton
+                        android:id="@+id/search_field_mike"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/actionBarItemBackground"
+                        android:padding="16dp"
+                        app:srcCompat="@drawable/search_field_mike"/>
+
+                </LinearLayout>
+            </androidx.appcompat.widget.Toolbar>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/white"
+                android:backgroundTint="@color/material_on_surface_stroke"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="8dp"
+                android:clipToPadding="false"
+                android:scrollbars="vertical"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:listData="@{viewModel.BOOKS}"
+                android:visibility="@{viewModel.status == SearchListStatus.ERROR ? View.GONE : View.VISIBLE}"
+                tools:listitem="@layout/search_book_card" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</layout>

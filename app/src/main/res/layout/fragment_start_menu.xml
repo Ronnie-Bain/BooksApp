@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".StartFragment" >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageButton
+            android:id="@+id/account_access_button"
+            android:layout_width="@dimen/custom_button_size"
+            android:layout_height="@dimen/custom_button_size"
+            android:layout_marginStart="8dp"
+            android:gravity="center_vertical"
+            android:background="?attr/actionBarItemBackground"
+            app:srcCompat="@drawable/fg_start_nav_drawer"
+            app:layout_constraintTop_toTopOf="@id/books_logo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/books_logo"
+            app:tint="@color/books_logo_color" />
+
+        <ImageView
+            android:id="@+id/books_logo"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/books_logo"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <ImageButton
+            android:id="@+id/code_info"
+            android:layout_width="@dimen/custom_button_size"
+            android:layout_height="@dimen/custom_button_size"
+            android:layout_marginEnd="8dp"
+            android:background="?attr/actionBarItemBackground"
+            app:srcCompat="@drawable/fg_start_code_info_button"
+            app:layout_constraintTop_toTopOf="@id/books_logo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/books_logo"
+            app:tint="@color/books_logo_color"/>
+
+        <ImageView
+            android:id="@+id/bine_logo_set"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:layout_margin="32dp"
+            android:layout_marginEnd="32dp"
+            android:layout_gravity="center_horizontal"
+            android:importantForAccessibility="no"
+            app:srcCompat="@drawable/bine_logo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/app_name"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="@string/app_title"
+            android:textSize="25sp"
+            android:layout_gravity="center"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/bine_logo_set"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/menu_button_1"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="16dp"
+            android:text="@string/menu_button_1"
+            app:icon="@drawable/add_notes_icon"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/app_name"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/menu_button_2"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/menu_button_2"
+            app:icon="@drawable/menu_button_2_icon"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/menu_button_1"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/menu_button_3"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/menu_button_3"
+            app:icon="@drawable/menu_button_3_icon"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/menu_button_2"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/menu_button_4"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/play_lucky_draw"
+            app:icon="@drawable/lottery"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/menu_button_3"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

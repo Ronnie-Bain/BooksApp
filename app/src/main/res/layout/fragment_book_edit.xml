@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" >
+
+    <data>
+        <variable
+            name="book"
+            type="com.example.books.data.Book" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp" >
+
+            <ImageView
+                android:id="@+id/book_image"
+                android:layout_width="140dp"
+                android:layout_height="180dp"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentTop="true"
+                android:importantForAccessibility="no"
+                app:srcUrl="@{book.bookImage}"/>
+
+            <TextView
+                android:id="@+id/book_details"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/book_image"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="32dp"
+                android:fontFamily="sans-serif-condensed-light"
+                android:text="@string/fg_edit_label_book_info"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/book_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:hint="@string/fg_edit_label_book_name"
+                android:animateLayoutChanges="true"
+                app:startIconDrawable="@drawable/book_image"
+                android:layout_below="@id/book_details"
+                android:layout_alignParentStart="true"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox" >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/book_name_field"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="textAutoComplete|textAutoCorrect|textCapWords"
+                    android:singleLine="true"
+                    android:text="@{book.bookName.toString()}" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/author_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:animateLayoutChanges="true"
+                android:hint="@string/fg_edit_label_author"
+                app:startIconDrawable="@drawable/input_author_name"
+                android:layout_below="@id/book_name"
+                android:layout_alignParentStart="true"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/author_field"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@{book.bookAuthor.toString()}"
+                    android:inputType="textAutoComplete|textPersonName|textCapWords"
+                    android:singleLine="true" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/topic"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:hint="@string/fg_edit_label_topic"
+                android:animateLayoutChanges="true"
+                app:startIconDrawable="@drawable/input_topic"
+                android:layout_below="@id/author_name"
+                android:layout_alignParentStart="true"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/topic_field"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@{book.bookTopic.toString()}"
+                    android:inputType="textAutoCorrect|textAutoComplete"
+                    android:singleLine="true"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/user_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/topic"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="32dp"
+                android:fontFamily="sans-serif-condensed-light"
+                android:text="@string/fg_edit_label_user_info"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/page_read"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:hint="@string/fg_edit_label_pages_read"
+                android:animateLayoutChanges="true"
+                app:startIconDrawable="@drawable/input_page"
+                android:layout_below="@id/user_info"
+                android:layout_alignParentStart="true"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/page_read_field"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@{@string/fg_edit_pages_read_info(book.pagesRead)}"
+                    android:inputType="numberDecimal"
+                    android:singleLine="true"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/total_page"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:hint="@string/fg_edit_label_total_page"
+                android:animateLayoutChanges="true"
+                app:startIconDrawable="@drawable/total_page"
+                android:layout_below="@id/page_read"
+                android:layout_alignParentStart="true"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/total_page_field"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@{@string/fg_edit_total_page_info(book.totalPage)}"
+                    android:inputType="numberDecimal"
+                    android:singleLine="true"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/chapter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:hint="@string/fg_edit_label_current_chapter"
+                android:animateLayoutChanges="true"
+                app:startIconDrawable="@drawable/input_chapter"
+                android:layout_below="@id/total_page"
+                android:layout_alignParentStart="true"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/chapter_field"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="@{book.chapter.toString()}"
+                    android:inputType="textAutoCorrect|textAutoComplete"
+                    android:singleLine="true"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/update_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/update_button"
+                android:layout_below="@id/chapter"
+                android:layout_alignParentStart="true" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/cancel_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/cancel_button"
+                android:layout_below="@id/update_button"
+                android:layout_alignParentStart="true"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="32dp"
+                android:layout_below="@id/cancel_button"
+                android:layout_alignParentStart="true" />
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</layout>

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/startFragment">
+    <fragment
+        android:id="@+id/startFragment"
+        android:name="com.example.books.fragments.StartFragment"
+        tools:layout="@layout/fragment_start_menu">
+        <action
+            android:id="@+id/action_startFragment_to_bookListFragment"
+            app:destination="@id/bookListFragment" />
+        <action
+            android:id="@+id/action_startFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addBooksFragment"
+        android:name="com.example.books.fragments.AddBooksFragment"
+        android:label="Add Books"
+        tools:layout="@layout/fragment_add_books">
+        <action
+            android:id="@+id/action_addBooksFragment_to_bookListFragment"
+            app:destination="@id/bookListFragment" />
+        <argument
+            android:name="book_id"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_addBooksFragment_to_startFragment"
+            app:destination="@id/startFragment"
+            app:popUpTo="@id/startFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/bookListFragment"
+        android:name="com.example.books.fragments.BookListFragment"
+        android:label="Book List"
+        tools:layout="@layout/fragment_book_list" >
+        <action
+            android:id="@+id/action_bookListFragment_to_bookDeatilsFragment"
+            app:destination="@id/bookDeatilsFragment" />
+        <action
+            android:id="@+id/action_bookListFragment_to_startFragment"
+            app:destination="@id/startFragment"
+            app:popUpTo="@id/startFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_bookListFragment_to_notesFragment"
+            app:destination="@id/notesFragment" />
+        <action
+            android:id="@+id/action_bookListFragment_to_bookEditFragment"
+            app:destination="@id/bookEditFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/bookDeatilsFragment"
+        android:name="com.example.books.fragments.BookDeatilsFragment"
+        android:label="Book Details"
+        tools:layout="@layout/fragment_book_details">
+        <argument
+            android:name="book_id"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_bookDeatilsFragment_to_startFragment"
+            app:destination="@id/startFragment"
+            app:popUpTo="@id/startFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/bookEditFragment"
+        android:name="com.example.books.fragments.BookEditFragment"
+        android:label="Edit Book"
+        tools:layout="@layout/fragment_book_edit" >
+        <argument
+            android:name="book_edit_id"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_bookEditFragment_to_startFragment"
+            app:destination="@id/startFragment"
+            app:popUpTo="@id/startFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.example.books.fragments.SearchFragment"
+        android:label=" Book Search"
+        tools:layout="@layout/fragment_search_books">
+        <action
+            android:id="@+id/action_searchFragment_to_addBooksFragment"
+            app:destination="@id/addBooksFragment" />
+        <action
+            android:id="@+id/action_searchFragment_to_booksToReadFragment"
+            app:destination="@id/booksToReadFragment"
+            app:popUpTo="@id/searchFragment"
+            app:popUpToInclusive="true"/>
+    </fragment>
+    <fragment
+        android:id="@+id/booksToReadFragment"
+        android:name="com.example.books.fragments.BooksToReadFragment"
+        android:label="BooksToReadFragment"
+        tools:layout="@layout/fragment_books_to_read">
+        <action
+            android:id="@+id/action_booksToReadFragment_to_startFragment"
+            app:destination="@id/startFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/notesFragment"
+        android:name="com.example.books.fragments.NotesFragment"
+        android:label="Note list"
+        tools:layout="@layout/fragment_notes">
+        <argument
+            android:name="book_id"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_notesFragment_to_noteCreateFragment"
+            app:destination="@id/noteCreateFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/noteCreateFragment"
+        android:name="com.example.books.fragments.NoteCreateFragment"
+        android:label="Create notes"
+        tools:layout="@layout/fragment_note_create">
+        <argument
+            android:name="book_id"
+            app:argType="integer" />
+    </fragment>
+</navigation>
